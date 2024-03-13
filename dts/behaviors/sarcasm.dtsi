@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        /omit-if-no-ref/ sarcasm: behavior_sarcasm {
+            compatible = "zmk,behavior-sarcasm";
+            #binding-cells = <0>;
+        };
+    };
+};
