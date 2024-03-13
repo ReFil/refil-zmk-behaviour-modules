@@ -1,0 +1,13 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Keyboard Keysmash Behavior
+
+compatible: "zmk,behavior-keysmash"
+
+include: zero_param.yaml
+
+properties:
+  delay_ms:
+    type: int
+    required: true
