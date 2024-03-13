@@ -1,0 +1,13 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Keyboard awawa Behavior
+
+compatible: "zmk,behavior-awawa"
+
+include: zero_param.yaml
+
+properties:
+  delay_ms:
+    type: int
+    required: true
