@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+    behaviors {
+        /omit-if-no-ref/ awawa: behavior_awawa {
+            compatible = "zmk,behavior-awawa";
+            #binding-cells = <0>;
+            delay_ms = <10>;
+        };
+    };
+};
