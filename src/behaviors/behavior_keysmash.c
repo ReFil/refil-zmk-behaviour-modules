@@ -11,7 +11,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zmk/behavior.h>
-#include <zephyr/random/random.h>
+#include <zephyr/drivers/timer/system_timer.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/keycode_state_changed.h>
 
@@ -24,7 +24,7 @@ struct behavior_keysmash_config {
 };
 
 static void zmk_keysmash_tick(struct k_work *work) {
-    int key = (sys_rand32_get() % 26) + 4;
+    int key = (sys_clock_cycle_get_32() % 26) + 4;
     raise_zmk_keycode_state_changed_from_encoded(key, true, k_uptime_get());
     k_msleep(5);
     raise_zmk_keycode_state_changed_from_encoded(key, false, k_uptime_get());
