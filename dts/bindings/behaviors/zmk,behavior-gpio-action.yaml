@@ -1,0 +1,17 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: GPIO action behaviour
+
+compatible: "zmk,behavior-gpio-action"
+
+include: one_param.yaml
+
+properties:
+  action-gpios:
+    type: phandle-array
+    required: true
+  delay-ms:
+    type: int
+    required: false
+    default: 10
