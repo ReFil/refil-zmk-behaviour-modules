@@ -1,0 +1,21 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Sensor rotate position trigger
+
+compatible: "zmk,behavior-sensor-rotate-pos-trig"
+
+properties:
+  "#sensor-binding-cells":
+    type: int
+    required: true
+    const: 0
+  tap-ms:
+    type: int
+    default: 5
+  pos-inc:
+    type: int
+    required: true
+  pos-dec:
+    type: int
+    required: true

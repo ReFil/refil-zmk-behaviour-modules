@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2025 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+ / {
+    behaviors {
+        /omit-if-no-ref/ inc_dec_pos: enc_pos_trig {
+            compatible = "zmk,behavior-sensor-rotate-pos-trig";
+            #sensor-binding-cells = <0>;
+            pos-inc = <0>;
+            pos-dec = <1>;
+        };
+    };
+};
