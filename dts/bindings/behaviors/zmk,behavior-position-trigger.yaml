@@ -1,0 +1,8 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Position direct trigger behavior
+
+compatible: "zmk,behavior-position-trigger"
+
+include: one_param.yaml
