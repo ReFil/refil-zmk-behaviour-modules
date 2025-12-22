@@ -43,21 +43,27 @@ static const struct behavior_parameter_metadata metadata = {
 static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
                                      struct zmk_behavior_binding_event event) {
     LOG_DBG("position %d", binding->param1);
-    return raise_zmk_position_state_changed(
+    if(binding-> param1 != event.position)
+        return raise_zmk_position_state_changed(
             (struct zmk_position_state_changed){.source = ZMK_POSITION_STATE_CHANGE_SOURCE_LOCAL,
                                                 .state = true,
                                                 .position = binding->param1,
                                                 .timestamp = event.timestamp});
+    else
+        return ZMK_BEHAVIOR_OPAQUE;
 }
 
 static int on_keymap_binding_released(struct zmk_behavior_binding *binding,
                                       struct zmk_behavior_binding_event event) {
     LOG_DBG("release position %d", binding->param1);
-    return raise_zmk_position_state_changed(
+    if(binding-> param1 != event.position)
+        return raise_zmk_position_state_changed(
             (struct zmk_position_state_changed){.source = ZMK_POSITION_STATE_CHANGE_SOURCE_LOCAL,
                                                 .state = false,
                                                 .position = binding->param1,
-                                                .timestamp = event.timestamp});
+                                                .timestamp = event.timestamp})
+    else
+        return ZMK_BEHAVIOR_OPAQUE;
 }
 
 static const struct behavior_driver_api behavior_position_trigger_driver_api = {
