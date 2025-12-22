@@ -61,7 +61,7 @@ static int on_keymap_binding_released(struct zmk_behavior_binding *binding,
             (struct zmk_position_state_changed){.source = ZMK_POSITION_STATE_CHANGE_SOURCE_LOCAL,
                                                 .state = false,
                                                 .position = binding->param1,
-                                                .timestamp = event.timestamp})
+                                                .timestamp = event.timestamp});
     else
         return ZMK_BEHAVIOR_OPAQUE;
 }
