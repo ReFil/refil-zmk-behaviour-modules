@@ -1,0 +1,19 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Hold or Tap behavior
+
+compatible: "zmk,behavior-key-release"
+
+include: two_param.yaml
+
+properties:
+  bindings:
+    type: phandles
+    required: true
+  press-tap-ms:
+    type: int
+    default: 5
+  release-tap-ms:
+    type: int
+    default: 5

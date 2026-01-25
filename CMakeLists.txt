@@ -1,0 +1,1 @@
+target_sources_ifdef(CONFIG_ZMK_BEHAVIOR_KEY_RELEASE app PRIVATE src/behaviors/behavior_key_release.c)

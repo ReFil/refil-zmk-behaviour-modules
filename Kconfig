@@ -1,0 +1,13 @@
+config ZMK_BEHAVIOR_KEY_RELEASE
+    bool
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_KEY_RELEASE_ENABLED
+
+if ZMK_BEHAVIOR_KEY_RELEASE
+
+config ZMK_BEHAVIOR_KEY_RELEASE_MAX_HELD
+    int "Key Release Max Held"
+    help
+      Max number of simultaneously held key_releases
+    default 10
+endif
