@@ -44,11 +44,9 @@ static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
                                      struct zmk_behavior_binding_event event) {
     LOG_DBG("position %d", binding->param1);
     if(binding-> param1 != event.position)
-        return raise_zmk_position_state_changed(
-            (struct zmk_position_state_changed){.source = ZMK_POSITION_STATE_CHANGE_SOURCE_LOCAL,
-                                                .state = true,
-                                                .position = binding->param1,
-                                                .timestamp = event.timestamp});
+        return zmk_behavior_invoke_binding(zmk_keymap_get_layer_binding_at_idx(zmk_keymap_highest_layer_active(), binding->param1),
+         (struct zmk_behavior_binding_event){.layer = zmk_keymap_highest_layer_active(), .position = binding->param1, .timestamp = event.timestamp}, true);
+
     else
         return ZMK_BEHAVIOR_OPAQUE;
 }
@@ -57,11 +55,9 @@ static int on_keymap_binding_released(struct zmk_behavior_binding *binding,
                                       struct zmk_behavior_binding_event event) {
     LOG_DBG("release position %d", binding->param1);
     if(binding-> param1 != event.position)
-        return raise_zmk_position_state_changed(
-            (struct zmk_position_state_changed){.source = ZMK_POSITION_STATE_CHANGE_SOURCE_LOCAL,
-                                                .state = false,
-                                                .position = binding->param1,
-                                                .timestamp = event.timestamp});
+        return zmk_behavior_invoke_binding(zmk_keymap_get_layer_binding_at_idx(zmk_keymap_highest_layer_active(), binding->param1),
+         (struct zmk_behavior_binding_event){.layer = zmk_keymap_highest_layer_active(), .position = binding->param1, .timestamp = event.timestamp}, false);
+
     else
         return ZMK_BEHAVIOR_OPAQUE;
 }
